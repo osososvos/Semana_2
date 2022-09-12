@@ -1,0 +1,11 @@
+.additional {
+  font-family:Verdana, Geneva, Tahoma, sans-serif
+}
+
+.additional.hidden {
+  display: none;
+}
+
+.additional.visible {
+  display: block;
+}

@@ -1,0 +1,120 @@
+<!DOCTYPE html PUBLIC>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Ejercicio 8 - Votaciones en gráfico</title>
+    <link rel="stylesheet" href="ej8.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+   
+  </head>
+
+
+
+  <body>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+    <div class="container">
+      <h1>Votaciones</h1>
+
+      <div class="container">
+        
+        <button type="button" id="socialistas" class="btn btn-outline-primary"()>Socialistas</button>
+        <button type="button" id="liberales" class="btn btn-outline-primary"()>Liberales</button>
+        <button type="button" id="animalistas" class="btn btn-outline-primary"()>Animalistas</button>
+        <button type="button" id="centristas" class="btn btn-outline-primary"()>Centristas</button>
+        <button type="button" id="ecologistas" class="btn btn-outline-primary"()>Ecologistas</button>
+        <button type="button" id="reset" class="btn btn-outline-danger"()>Reset</button>
+      </div>
+      <!-- *** -->
+      <div class="chartBox">
+        <canvas id="myChart"></canvas>
+      </div>
+
+    <script>
+      
+      let vsoc = 0;
+      socialistas.onclick = () => {
+            //!!!!Cada voto aumento incremento ese valor "socialista"
+      const updatevote = myChart.data.datasets[0].data[0] + 1;
+      myChart.data.datasets[0].data[0] = updatevote;
+      myChart.update();
+        // !!!!!para monitorizar en consola. borrar luego
+      console.log(myChart.data.datasets[0].data[0]);
+      };
+      let vlib = 0;
+      liberales.onclick = () => {
+      const updatevote = myChart.data.datasets[0].data[1] + 1;
+      myChart.data.datasets[0].data[1] = updatevote;
+      myChart.update();
+      };
+      let vani = 0;
+      animalistas.onclick = () => {
+      const updatevote = myChart.data.datasets[0].data[2] + 1;
+      myChart.data.datasets[0].data[2] = updatevote;
+      myChart.update();
+      };
+      let vcent = 0;
+      centristas.onclick = () => {
+      const updatevote = myChart.data.datasets[0].data[3] + 1;
+      myChart.data.datasets[0].data[3] = updatevote;
+      myChart.update();
+      };
+      let veco = 0;
+      ecologistas.onclick = () => {
+      const updatevote = myChart.data.datasets[0].data[4] + 1;
+      myChart.data.datasets[0].data[4] = updatevote;
+      myChart.update();
+      };
+
+      ///Reset Button////
+      reset.onclick = () => {
+      var dataReset = [0, 0, 0, 0, 0];
+      myChart.data.datasets[0].data = dataReset;    
+      myChart.update();
+      };
+    
+      
+      var datavar = [vsoc, vlib, vani, vcent, veco];    
+      
+      var ctx = document.getElementById('myChart').getContext('2d');
+      var myChart = new Chart(ctx, {
+        type: 'pie',
+        data: {
+          labels: ['Socialistas', 'Liberales', 'Animalistas', 'Centristas', 'Ecologistas'],
+          datasets: [{
+              label: '# of Votes',
+              data: datavar,
+              backgroundColor: [
+                  'rgba(238, 110, 133, 1)',
+                  'rgba(85, 162, 229, 1)',
+                  'rgba(248, 206, 107, 1)',
+                  'rgba(148, 109, 181, 1)',
+                  'rgba(168, 228, 78, 1)'
+                  
+              ],
+              borderColor: [
+                  'rgba(238, 110, 133, 1)',
+                  'rgba(85, 162, 229, 1)',
+                  'rgba(248, 206, 107, 1)',
+                  'rgba(148, 109, 181, 1)',
+                  'rgba(168, 228, 78, 1)'
+              ],
+              borderWidth: 4
+          }]
+        },
+        options: {}
+        });
+        
+
+
+
+      </script>
+
+      
+            
+    </div>
+    
+    
+  </body>
+</html>
